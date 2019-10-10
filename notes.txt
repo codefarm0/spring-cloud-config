@@ -1,0 +1,32 @@
+spring.cloud.config.uri: http://myconfigserver.com
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/spring-cloud-samples/config-repo
+		  skipSslValidation: true
+		  
+@EnableConfigServer
+
+Git Refresh Rate
+You can control how often the config server will fetch updated configuration data from your Git backend by using spring.cloud.config.server.git.refreshRate. The value of this property is specified in seconds. By default the value is 0, meaning the config server will fetch updated configuration from the Git repo every time it is requested.
+
+Spring Cloud Config Server also supports Vault as a backend.
+
+Vault is a tool for securely accessing secrets. A secret is anything that to which you want to tightly control access, such as API keys, passwords, certificates, and other sensitive information. Vault provides a unified interface to any secret while providing tight access control and recording a detailed audit log.
+
+
+Redis Backend
+Spring Cloud Config Server supports Redis as a backend for configuration properties. You can enable this feature by adding a dependency to Spring Data Redis.
+
+CredHub Backend
+Spring Cloud Config Server supports CredHub as a backend for configuration properties. You can enable this feature by adding a dependency to Spring CredHub.
+
+Config Client Retry
+If you expect that the config server may occasionally be unavailable when your application starts, you can make it keep trying after a failure. First, you need to set spring.cloud.config.fail-fast=true. Then you need to add spring-retry and spring-boot-starter-aop to your classpath. The default behavior is to retry six times with an initial backoff interval of 1000ms and an exponential multiplier of 1.1 for subsequent backoffs. You can configure these properties (and others) by setting the spring.cloud.config.retry.* configuration properties.
+
+
+Build just once and deploy it in any environment.-----------------------------------
+
+Cloud bus: This is optional but very useful. Think if we needed to refresh the actuator endpoint manually for each service. That would be a hectic task, as a complex business domain has many microservices. In this scenario, the cloud bus helps to push the updated properties to all its subscribed microservices. But to trigger this action, we need to manually refresh one microservice endpoint. I will talk later about the cloud bus.
