@@ -1,4 +1,4 @@
-package com.gl.configserver;
+package com.gl.configServer;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class ConfigserverApplicationTests {
+public class ConfigServerApplicationTests {
 
 	@Test
 	public void contextLoads() {
