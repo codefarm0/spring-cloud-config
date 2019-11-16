@@ -1,0 +1,21 @@
+server:
+  port: 8081
+spring:
+  cloud:
+    config:
+      uri: http://localhost:8090/
+      profile: prod
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - health
+          - refresh
+  endpoint:
+    health:
+      show-details: always
+health:
+  config:
+    enabled: true

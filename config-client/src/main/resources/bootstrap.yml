@@ -1,0 +1,6 @@
+spring:
+  config:
+    location: http://localhost:8888/
+  profiles:
+    active:
+      - prod
