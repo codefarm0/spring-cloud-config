@@ -21,4 +21,4 @@
  
  ## Directly from the spring cloud config server and config client documentation
  
- * Explained with example in the video - TBD
+ * Explained with example in the video - https://youtu.be/5f8snVymxUs
